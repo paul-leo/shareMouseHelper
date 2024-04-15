@@ -38,7 +38,7 @@ function getMillisecondsToNextHalfHourOrHour() {
 function restart() {
     if(process.platform === 'win32') {
       const restartWin = require('./restart-win');
-      restartWin('ShareMouse.exe');
+      restartWin('ShareMouse\\ShareMouse.exe');
     }
     else {
       const restartMac = require('./restart-mac');
