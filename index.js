@@ -1,4 +1,4 @@
-// #!/usr/bin/env node
+#!/usr/bin/env node
 function getMillisecondsToNextHalfHourOrHour() {
     let now = new Date(); // 获取当前时间
     let minutes = now.getMinutes(); // 获取当前的分钟数
