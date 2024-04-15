@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "sharemouse": "./index.js"
+  },
   "scripts": {
     "test": "node index.js"
   },
