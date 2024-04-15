@@ -34,6 +34,10 @@ function findProgramWin(programName) {
     const parentPath = [
         'C:/Program Files/',
         'C:/Program Files (x86)/',
+        'D:/Program Files/',
+        'D:/Program Files (x86)/',
+        'E:/Program Files/',
+        'E:/Program Files (x86)/',
     ].find((curpath) => {
         if (existsSync(path.resolve(curpath, programName))) {
             return true;
