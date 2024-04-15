@@ -1,6 +1,6 @@
 {
   "name": "sharemouse",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "sharemouse helper",
   "main": "index.js",
   "bin": {
