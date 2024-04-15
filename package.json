@@ -1,13 +1,23 @@
 {
   "name": "sharemouse",
   "version": "1.0.4",
-  "description": "",
+  "description": "sharemouse helper",
   "main": "index.js",
-  "bin": "index.js",
+  "bin": {
+    "sharemouse": "index.js"
+  },
   "scripts": {
     "test": "node index.js"
   },
   "keywords": [],
   "author": "paul",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paul-leo/shareMouseHelper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/paul-leo/shareMouseHelper/issues"
+  },
+  "homepage": "https://github.com/paul-leo/shareMouseHelper#readme"
 }
