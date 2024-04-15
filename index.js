@@ -38,7 +38,7 @@ function getMillisecondsToNextHalfHourOrHour() {
 function restart() {
     if(process.platform === 'win32') {
       const restartWin = require('./restart-win');
-      restartWin('ShareMouse\\ShareMouse.exe');
+      restartWin('ShareMouse/ShareMouse.exe');
     }
     else {
       const restartMac = require('./restart-mac');
@@ -49,7 +49,7 @@ function restart() {
 function jihua() {
   let millisecondsUntilNext = getMillisecondsToNextHalfHourOrHour();
   console.log("距离下一个30分钟或整点还有多少毫秒：", millisecondsUntilNext);
-  restart();
+  // restart();
   setTimeout(() => {
       console.log('重启');
       restart();

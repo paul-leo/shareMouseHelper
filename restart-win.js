@@ -1,14 +1,22 @@
 const { existsSync } = require('fs');
+const path = require('path');
 
 
 
 // let millisecondsUntilNext = getMillisecondsToNextHalfHourOrHour();
 // console.log("距离下一个30分钟或整点还有多少毫秒：", millisecondsUntilNext);
 module.exports = async function restart(programName) {
-    await killWin(programName);
+    await killWin(programName.split('/').pop());
+    await sleep(1000)
     await startWin(programName);
 }
 
+function sleep(ms) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+
+}
 function killWin(programName) {
     return new Promise((resolve, reject) => {
         const exec = require('child_process').exec;
@@ -24,14 +32,15 @@ function killWin(programName) {
 
 function findProgramWin(programName) {
     const parentPath = [
-        'C:\\Program Files\\ShareMouse\\',
-        'C:\\Program Files (x86)\\ShareMouse\\',
-    ].find((path) => {
-        if (existsSync(`${path}${programName}`)) {
-            return `${path}${programName}`;
+        'C:/Program Files/',
+        'C:/Program Files (x86)/',
+    ].find((curpath) => {
+        if (existsSync(path.resolve(curpath, programName))) {
+            return true;
         }
     });
-    return parentPath ?parentPath + programName : null;
+    console.log('parentPath', path.resolve(parentPath, programName));
+    return parentPath ?path.resolve(parentPath, programName) : null;
 }
 /**
  * 启动windows 程序
@@ -46,13 +55,22 @@ function startWin(programName) {
     }
     return new Promise((resolve, reject) => {
         const exec = require('child_process').exec;
-        exec(`start ${programName}`, (err, stdout, stderr) => {
+        const sh = `start "" "${programPath}"`;
+        console.log('sh',sh);
+        exec(sh,{
+          windowsHide: true,
+        } ,(err, stdout, stderr) => {
+            console.log('err',err);
+            console.log('stdout',stdout);
             if (err) {
                 reject(err);
             } else {
                 resolve(stdout);
             }
         });
+        setTimeout(() => {
+            resolve();
+        }, 1000);
     });
 }
 
