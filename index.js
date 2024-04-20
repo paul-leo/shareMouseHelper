@@ -26,7 +26,7 @@ function getMillisecondsToNextHalfHourOrHour() {
             0,
             0
         );
-    }
+    // }
 
     // 计算差值（毫秒）
     let millisecondsToNext = nextTime.getTime() - now.getTime();
