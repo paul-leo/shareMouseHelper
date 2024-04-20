@@ -4,18 +4,18 @@ function getMillisecondsToNextHalfHourOrHour() {
     let minutes = now.getMinutes(); // 获取当前的分钟数
     let nextTime;
 
-    if (minutes < 30) {
-        // 如果当前分钟小于30，则下一个时间点是当前小时的30分钟
-        nextTime = new Date(
-            now.getFullYear(),
-            now.getMonth(),
-            now.getDate(),
-            now.getHours(),
-            30,
-            0,
-            0
-        );
-    } else {
+    // if (minutes < 30) {
+    //     // 如果当前分钟小于30，则下一个时间点是当前小时的30分钟
+    //     nextTime = new Date(
+    //         now.getFullYear(),
+    //         now.getMonth(),
+    //         now.getDate(),
+    //         now.getHours(),
+    //         30,
+    //         0,
+    //         0
+    //     );
+    // } else {
         // 否则，下一个时间点是下一个小时的整点
         nextTime = new Date(
             now.getFullYear(),
